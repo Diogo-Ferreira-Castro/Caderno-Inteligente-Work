@@ -1,0 +1,28 @@
+CADERNO INTELIGENTE WORK V2 — TABLET PRO
+
+Versão profissional separada do Órbita Estudos.
+
+PRINCIPAIS MELHORIAS V2
+- Interface responsiva refeita para desktop, tablet e celular.
+- Tela cheia sempre visível.
+- Central rápida lateral com ferramentas e controles.
+- Barra inferior especial para tablet.
+- S Pen Only / rejeição de toque da mão nos quadros de desenho e CAD.
+- Página manuscrita rápida.
+- Modo foco e modo compacto.
+- Manter tela ativa (Wake Lock, quando o navegador permitir).
+- Zoom de workspace 80–125%.
+- Desfazer/refazer, histórico, Salvar como e colaboração acessíveis pela interface principal.
+- Instalação PWA e uso offline mantidos.
+- Atalhos rápidos para Documento, Planilha, Slides, Project, BI, CAD 2D, 3D, Caneta, Studio, PDF e Calculadora.
+- Melhor adaptação em retrato e paisagem.
+
+PUBLICAÇÃO
+Crie um repositório GitHub separado para este aplicativo, por exemplo:
+Caderno-Inteligente-Work
+
+Envie O CONTEÚDO desta pasta para a raiz do repositório (index.html precisa ficar na raiz).
+Em Settings > Pages use main / root.
+
+A colaboração online continua usando setup/supabase-v26-collaboration.sql.
+- Pressão da S Pen no quadro manuscrito: quando o navegador fornece pressão, o traço varia de espessura naturalmente.

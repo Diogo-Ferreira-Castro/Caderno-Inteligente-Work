@@ -1,0 +1,20 @@
+CADERNO INTELIGENTE WORK V2 — TABLET PRO
+
+Aplicativo separado do Órbita/Trilha.
+
+MELHORIAS V2
+- Interface adaptativa para computador, tablet e celular
+- Barra inferior de ações no tablet
+- Modo Caneta / Pen Only: evita desenho com toque no quadro de anotação
+- Modo Foco com área de trabalho em tela cheia
+- Tela cheia real do navegador
+- Painéis de Arquivos e IA como gavetas no tablet
+- Teclado virtual em acesso rápido
+- Botão de instalação PWA quando disponível
+- Melhor uso em retrato e paisagem
+- Botões/campos maiores para toque
+- Preserva Office, BI, Project, CAD 2D/3D, IDE, PDF, calculadora, histórico, colaboração e Integration Engine
+
+PUBLICAÇÃO
+Envie o CONTEÚDO desta pasta para a raiz de um repositório GitHub separado, por exemplo: caderno-inteligente-work.
+GitHub Pages: Settings > Pages > Deploy from a branch > main > /(root).

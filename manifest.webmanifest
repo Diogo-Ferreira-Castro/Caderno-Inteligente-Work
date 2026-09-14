@@ -1,0 +1,43 @@
+{
+  "id": "./",
+  "name": "Caderno Inteligente Work V2 — Tablet Pro",
+  "short_name": "Caderno Work",
+  "description": "Workspace profissional otimizado para tablet e S Pen: documento, planilha, slides, Project, BI, CAD 2D/3D, Studio, PDF, caneta, IA, histórico e colaboração.",
+  "lang": "pt-BR",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#050913",
+  "theme_color": "#050913",
+  "categories": [
+    "productivity",
+    "business",
+    "utilities"
+  ],
+  "icons": [
+    {
+      "src": "./icons/icon-180.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "display_override": [
+    "window-controls-overlay",
+    "standalone",
+    "minimal-ui"
+  ]
+}
