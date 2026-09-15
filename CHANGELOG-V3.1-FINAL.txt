@@ -1,0 +1,8 @@
+CADERNO INTELIGENTE WORK V3.1 FINAL POLISH
+
+- Tela de login agora cobre totalmente o workspace.
+- Contraste e legibilidade do login corrigidos.
+- Marca do topo, capa e login usam ícone vetorial embutido, evitando imagem quebrada na interface.
+- Mantidos os PNGs do PWA para instalação no tablet/celular.
+- Cache do Service Worker atualizado para forçar a nova versão.
+- Nenhuma alteração no config.js / credenciais Supabase.

@@ -1,0 +1,6 @@
+PARA DEIXAR A TRILHA PRONTA PARA QUALQUER USUÁRIO
+
+Edite deploy/config.js e informe a URL e a chave pública (anon/publishable) do seu projeto Supabase.
+Isso é feito uma única vez antes do deploy. Depois, os usuários só precisam criar/entrar com e-mail e senha.
+
+NUNCA use service_role/secret key no navegador.
