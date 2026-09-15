@@ -1,5 +1,5 @@
-/* Caderno Inteligente Work V3 FINAL — offline + update-safe service worker */
-var CACHE='caderno-inteligente-work-v3-1-final-20260914';
+/* Caderno Inteligente Work V3.2 FINAL — offline + update-safe service worker */
+var CACHE='caderno-inteligente-work-v3-2-final-clean-20260914';
 var ASSETS=['./','./index.html','./manifest.webmanifest','./orbita-infinity.css','./orbita-infinity.js','./caderno-work.css','./caderno-work.js','./work-icons.svg','./icons/icon-180.png','./icons/icon-192.png','./icons/icon-512.png'];
 self.addEventListener('install',function(e){e.waitUntil(caches.open(CACHE).then(function(c){return c.addAll(ASSETS)}).catch(function(){}).then(function(){return self.skipWaiting()}))});
 self.addEventListener('activate',function(e){e.waitUntil(Promise.all([caches.keys().then(function(keys){return Promise.all(keys.map(function(k){return k===CACHE?null:caches.delete(k)}))}),self.registration.navigationPreload&&self.registration.navigationPreload.enable?self.registration.navigationPreload.enable():Promise.resolve()]).then(function(){return self.clients.claim()}))});

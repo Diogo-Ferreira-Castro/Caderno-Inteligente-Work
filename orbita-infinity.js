@@ -1032,7 +1032,7 @@
 
 
 
-  /* WORK V3 FINAL — modelos profissionais extras. Mantém compatibilidade com todos os modelos anteriores. */
+  /* WORK V3.2 FINAL — modelos profissionais extras. Mantém compatibilidade com todos os modelos anteriores. */
   var _presetBlocksWorkV3=presetBlocks;
   presetBlocks=function(key){
     if(key==='workmax')return [

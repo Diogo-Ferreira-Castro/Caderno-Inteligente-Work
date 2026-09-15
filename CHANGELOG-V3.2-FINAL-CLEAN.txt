@@ -1,0 +1,7 @@
+CADERNO INTELIGENTE WORK V3.2 FINAL CLEAN
+
+- Correção final do link interno obsoleto do manual.
+- Identificação da versão atualizada para V3.2 FINAL.
+- Cache/PWA renovado para forçar atualização limpa.
+- Mantém config.js fora do pacote para preservar as credenciais Supabase já configuradas no GitHub.
+- Mantém login, criação de conta, recuperação de senha, Supabase, S Pen, Office, BI, Project, CAD 2D/3D, Studio, histórico, colaboração, backup, busca, capa e modo foco.
