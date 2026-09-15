@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caderno Work V3.2 - Integração Completa de Módulos</title>
+
+  <!-- Design System Central -->
+  <link rel="stylesheet" href="./variables.css">
+
+  <!-- Layout Refatorado -->
+  <link rel="stylesheet" href="./orbita-infinity-MELHORADO.css">
+  <link rel="stylesheet" href="./caderno-work.css">
+</head>
+<body>
+  <div id="app" class="av-shell">
+    <!-- Header/Topbar -->
+    <header class="av-topbar">
+      <div class="av-topbar-brand">
+        <h1>📚 Caderno Work V3.2</h1>
+        <span class="av-version">Integração Completa</span>
+      </div>
+      <nav class="av-topbar-nav">
+        <button class="av-nav-btn" data-section="cadernos">📚 Cadernos</button>
+        <button class="av-nav-btn" data-section="cronograma">📅 Cronograma</button>
+        <button class="av-nav-btn" data-section="planilha">📊 Planilha</button>
+        <button class="av-nav-btn" data-section="canvas">✏️ Folha Livre</button>
+      </nav>
+    </header>
+
+    <div class="av-shell-body">
+      <!-- SEÇÃO: CADERNOS (Organização) -->
+      <section id="section-cadernos" class="av-section active">
+        <div id="cadernos-container" style="height: 100%; width: 100%;"></div>
+      </section>
+
+      <!-- SEÇÃO: CRONOGRAMA (Gantt Chart) -->
+      <section id="section-cronograma" class="av-section">
+        <div class="av-section-header">
+          <h2>📅 Cronograma do Projeto</h2>
+          <p>Gerenciamento de tarefas, recursos e cronômetro do projeto</p>
+        </div>
+        <div id="cronograma-container" style="height: calc(100% - 100px); width: 100%;"></div>
+      </section>
+
+      <!-- SEÇÃO: PLANILHA (Spreadsheet) -->
+      <section id="section-planilha" class="av-section">
+        <div class="av-section-header">
+          <h2>📊 Planilha de Dados</h2>
+          <p>Excel-like com fórmulas, formatação e gráficos</p>
+        </div>
+        <div id="spreadsheet-container" style="height: calc(100% - 100px); width: 100%;"></div>
+      </section>
+
+      <!-- SEÇÃO: FOLHA LIVRE (Canvas) -->
+      <section id="section-canvas" class="av-section">
+        <div class="av-section-header">
+          <h2>✏️ Folha Livre</h2>
+          <p>Desenho com pautas, OCR e exportação</p>
+        </div>
+        <div id="canvas-container" style="height: calc(100% - 100px); width: 100%;"></div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="av-footer">
+      <p>Caderno Work V3.2 - Versão integrada com todos os módulos | Refatoração e Design System por Claude Haiku 4.5</p>
+    </footer>
+  </div>
+
+  <!-- Módulos Funcionais (Ordem de dependência) -->
+  <script src="./variables.js"></script><!-- Carrega variáveis CSS dinamicamente (opcional) -->
+  <script src="./cronograma.js"></script>
+  <script src="./spreadsheet.js"></script>
+  <script src="./canvas.js"></script>
+  <script src="./cadernos.js"></script>
+
+  <!-- App Principal - Inicialização dos Módulos -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // ========================================
+      // 1. INICIALIZAR CADERNOS (Gerenciador)
+      // ========================================
+      const cadernosManager = new CadernosManager('cadernos-container', {
+        cadernos: [
+          {
+            id: 'cad-001',
+            name: 'Planejamento Sprint 1',
+            context: 'trabalho',
+            folder: null,
+            template: 'project',
+            tags: ['sprint', 'planejamento', 'desenvolvimento'],
+            createdAt: new Date().toISOString(),
+            modifiedAt: new Date().toISOString(),
+            archived: false
+          },
+          {
+            id: 'cad-002',
+            name: 'Anotações Pessoais',
+            context: 'pessoal',
+            folder: null,
+            template: 'notes',
+            tags: ['pessoal', 'ideas'],
+            createdAt: new Date().toISOString(),
+            modifiedAt: new Date().toISOString(),
+            archived: false
+          },
+          {
+            id: 'cad-003',
+            name: 'Estudos de JavaScript',
+            context: 'estudo',
+            folder: null,
+            template: 'notes',
+            tags: ['javascript', 'programação', 'estudo'],
+            createdAt: new Date().toISOString(),
+            modifiedAt: new Date().toISOString(),
+            archived: false
+          }
+        ],
+        folders: [
+          { id: 'fold-001', name: 'Projetos', parentId: null },
+          { id: 'fold-002', name: 'Pessoal', parentId: null }
+        ]
+      });
+
+      // ========================================
+      // 2. INICIALIZAR CRONOGRAMA (Gantt)
+      // ========================================
+      const tasks = [
+        {
+          id: 'task-1',
+          name: 'Design UI/UX',
+          start: new Date(2026, 8, 1),
+          end: new Date(2026, 8, 10),
+          resources: ['Alice', 'Bob'],
+          cost: 5000,
+          status: 'progresso',
+          progress: 75,
+          isMilestone: false,
+          depends_on: []
+        },
+        {
+          id: 'task-2',
+          name: 'Desenvolvimento Frontend',
+          start: new Date(2026, 8, 8),
+          end: new Date(2026, 8, 20),
+          resources: ['Carlos', 'Diana'],
+          cost: 8000,
+          status: 'progresso',
+          progress: 50,
+          isMilestone: false,
+          depends_on: ['task-1']
+        },
+        {
+          id: 'task-3',
+          name: 'Testes QA',
+          start: new Date(2026, 8, 18),
+          end: new Date(2026, 8, 25),
+          resources: ['Eva'],
+          cost: 3000,
+          status: 'planejado',
+          progress: 0,
+          isMilestone: false,
+          depends_on: ['task-2']
+        },
+        {
+          id: 'task-4',
+          name: 'Release v3.2',
+          start: new Date(2026, 8, 26),
+          end: new Date(2026, 8, 26),
+          resources: ['Alice'],
+          cost: 0,
+          status: 'planejado',
+          progress: 0,
+          isMilestone: true,
+          depends_on: ['task-3']
+        }
+      ];
+
+      const resources = [
+        { id: 'alice', name: 'Alice', avatar: '👩' },
+        { id: 'bob', name: 'Bob', avatar: '👨' },
+        { id: 'carlos', name: 'Carlos', avatar: '👨' },
+        { id: 'diana', name: 'Diana', avatar: '👩' },
+        { id: 'eva', name: 'Eva', avatar: '👩' }
+      ];
+
+      const cronograma = new CronogramaGantt('cronograma-container', tasks, resources);
+      cronograma.render();
+
+      // ========================================
+      // 3. INICIALIZAR SPREADSHEET (Excel)
+      // ========================================
+      const sheet = new Spreadsheet('spreadsheet-container', 15, 8);
+
+      // Adicionar dados de exemplo
+      sheet.setCellValue(0, 0, 'Projeto');
+      sheet.setCellValue(0, 1, 'Q1');
+      sheet.setCellValue(0, 2, 'Q2');
+      sheet.setCellValue(0, 3, 'Q3');
+      sheet.setCellValue(0, 4, 'Total');
+
+      sheet.setCellValue(1, 0, 'Desenvolvimento');
+      sheet.setCellValue(1, 1, '45000');
+      sheet.setCellValue(1, 2, '50000');
+      sheet.setCellValue(1, 3, '48000');
+      sheet.setCellValue(1, 4, '=SUM(B2:D2)');
+
+      sheet.setCellValue(2, 0, 'Design');
+      sheet.setCellValue(2, 1, '15000');
+      sheet.setCellValue(2, 2, '18000');
+      sheet.setCellValue(2, 3, '16000');
+      sheet.setCellValue(2, 4, '=SUM(B3:D3)');
+
+      sheet.setCellValue(3, 0, 'QA');
+      sheet.setCellValue(3, 1, '10000');
+      sheet.setCellValue(3, 2, '12000');
+      sheet.setCellValue(3, 3, '11000');
+      sheet.setCellValue(3, 4, '=SUM(B4:D4)');
+
+      sheet.setCellValue(5, 0, 'Total Geral');
+      sheet.setCellValue(5, 4, '=SUM(E2:E4)');
+
+      // ========================================
+      // 4. INICIALIZAR CANVAS (Folha Livre)
+      // ========================================
+      const canvas = new CanvasDrawing('canvas-container', 1000, 1400);
+      canvas.patternType = 'lined';
+      canvas.renderPage();
+
+      // ========================================
+      // 5. NAVEGAÇÃO ENTRE SEÇÕES
+      // ========================================
+      document.querySelectorAll('.av-nav-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const sectionId = e.target.dataset.section;
+
+          // Remover ativo de todos
+          document.querySelectorAll('.av-section').forEach(s => s.classList.remove('active'));
+          document.querySelectorAll('.av-nav-btn').forEach(b => b.classList.remove('active'));
+
+          // Ativar selecionado
+          const sectionMap = {
+            cadernos: 'section-cadernos',
+            cronograma: 'section-cronograma',
+            planilha: 'section-planilha',
+            canvas: 'section-canvas'
+          };
+
+          document.getElementById(sectionMap[sectionId])?.classList.add('active');
+          e.target.classList.add('active');
+
+          // Re-render se necessário
+          if (sectionId === 'cronograma') cronograma.render();
+          if (sectionId === 'canvas') canvas.renderPage();
+        });
+      });
+
+      // Ativar primeiro botão por padrão
+      document.querySelector('.av-nav-btn').classList.add('active');
+
+      // ========================================
+      // 6. EXPOSIÇÃO GLOBAL (para console debugging)
+      // ========================================
+      window.cadernosManager = cadernosManager;
+      window.cronograma = cronograma;
+      window.sheet = sheet;
+      window.canvas = canvas;
+
+      console.log('✅ Caderno Work V3.2 - Integração Completa Iniciada');
+      console.log('Módulos disponíveis no console:');
+      console.log('  - cadernosManager (organização)');
+      console.log('  - cronograma (gantt)');
+      console.log('  - sheet (spreadsheet)');
+      console.log('  - canvas (folha livre)');
+    });
+  </script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-family-body);
+      background: var(--color-page);
+      color: var(--color-ink);
+      line-height: var(--line-height-normal);
+    }
+
+    .av-shell {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      height: 100vh;
+    }
+
+    .av-topbar {
+      background: var(--color-surface-raised);
+      border-bottom: 1px solid var(--color-border);
+      padding: var(--spacing-md);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--spacing-lg);
+      box-shadow: var(--shadow-card);
+      z-index: var(--z-sticky);
+    }
+
+    .av-topbar-brand {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+    }
+
+    .av-topbar-brand h1 {
+      font-size: var(--font-size-xl);
+      margin: 0;
+    }
+
+    .av-version {
+      font-size: var(--font-size-xs);
+      color: var(--color-ink-secondary);
+      background: var(--color-surface-sunken);
+      padding: 4px 8px;
+      border-radius: var(--radius-field);
+    }
+
+    .av-topbar-nav {
+      display: flex;
+      gap: var(--spacing-sm);
+    }
+
+    .av-nav-btn {
+      padding: 8px 16px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-field);
+      background: var(--color-surface);
+      color: var(--color-ink);
+      cursor: pointer;
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      transition: var(--transition-base);
+    }
+
+    .av-nav-btn:hover {
+      background: var(--color-surface-sunken);
+    }
+
+    .av-nav-btn.active {
+      background: var(--color-slot-1);
+      color: white;
+      border-color: var(--color-slot-1);
+    }
+
+    .av-shell-body {
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+      padding: var(--spacing-md);
+    }
+
+    .av-section {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: var(--spacing-md);
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-base);
+    }
+
+    .av-section.active {
+      opacity: 1;
+      pointer-events: auto;
+      position: relative;
+    }
+
+    .av-section-header {
+      margin-bottom: var(--spacing-md);
+    }
+
+    .av-section-header h2 {
+      margin-bottom: var(--spacing-xs);
+      color: var(--color-ink);
+    }
+
+    .av-section-header p {
+      color: var(--color-ink-secondary);
+      font-size: var(--font-size-sm);
+    }
+
+    .av-footer {
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+      padding: var(--spacing-md);
+      text-align: center;
+      color: var(--color-ink-muted);
+      font-size: var(--font-size-xs);
+    }
+
+    @media (max-width: 800px) {
+      .av-topbar {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+      }
+
+      .av-topbar-nav {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .av-nav-btn {
+        flex: 1;
+        text-align: center;
+        padding: 6px 8px;
+        font-size: 11px;
+      }
+    }
+  </style>
+</body>
+</html>

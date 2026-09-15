@@ -1,0 +1,1174 @@
+/* ========================================
+   ÓRBITA INFINITY V3.2+ — REFACTORED
+   Usando variables.css + Arquitetura Modular
+   ======================================== */
+
+/* ===== IMPORTAR VARIÁVEIS CENTRALIZADAS ===== */
+@import url('./variables.css');
+
+/* ========================================
+   SEÇÃO 1: LAYOUT BASE E SHELL
+   ======================================== */
+
+#view-caderno {
+  padding: 0 !important;
+  max-width: none !important;
+}
+
+#view-caderno > .card {
+  display: none !important;
+}
+
+.av-shell {
+  display: grid;
+  grid-template-columns: 244px minmax(520px, 1fr) 292px;
+  min-height: calc(100vh - 136px);
+  background: linear-gradient(145deg, #08101e 0%, #0c1530 48%, #08101e 100%);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: var(--radius-modal);
+  overflow: hidden;
+  box-shadow: 0 22px 70px rgba(15, 23, 42, 0.22);
+  position: relative;
+  color: #eaf0ff;
+}
+
+/* ===== SIDEBAR ===== */
+.av-side,
+.av-ai-side {
+  background: linear-gradient(180deg, rgba(9, 18, 37, 0.98), rgba(13, 22, 43, 0.98));
+  min-width: 0;
+  position: relative;
+  z-index: var(--z-sticky);
+}
+
+.av-side {
+  border-right: 1px solid rgba(148, 163, 184, 0.18);
+  display: flex;
+  flex-direction: column;
+}
+
+.av-ai-side {
+  border-left: 1px solid rgba(148, 163, 184, 0.18);
+  padding: var(--spacing-lg);
+  overflow: auto;
+  max-height: calc(100vh - 136px);
+  z-index: var(--z-floating);
+}
+
+.av-side-head {
+  padding: 18px var(--spacing-lg) 14px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.av-side-foot {
+  padding: var(--spacing-sm);
+  border-top: 1px solid rgba(148, 163, 184, 0.18);
+  font-size: 9.5px;
+  color: #7386aa;
+}
+
+/* ===== MAIN CONTENT ===== */
+.av-main {
+  min-width: 0;
+  background: #eef2f9;
+  position: relative;
+  color: #182235;
+}
+
+.av-topbar {
+  height: 57px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid #dfe5f0;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: 0 13px;
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+}
+
+.av-paperbar {
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  padding: var(--spacing-xs) 12px;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  overflow: auto;
+  position: sticky;
+  top: 57px;
+  z-index: var(--z-floating);
+}
+
+/* ========================================
+   SEÇÃO 2: COMPONENTES BASE
+   ======================================== */
+
+/* ===== BRAND & BUTTONS ===== */
+.av-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.av-orbit {
+  width: 38px;
+  height: 38px;
+  border-radius: 13px;
+  background: radial-gradient(circle at 30% 30%, #a78bfa, #4f46e5 55%, #172554);
+  display: grid;
+  place-items: center;
+  font-size: 21px;
+  box-shadow: 0 8px 30px rgba(124, 92, 255, 0.35);
+}
+
+.av-mini-btn,
+.av-btn {
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  background: rgba(255, 255, 255, 0.045);
+  color: #e7edff;
+  border-radius: var(--radius-field);
+  min-height: 34px;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font: 600 11px var(--font-family-body);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  transition: var(--transition-base);
+}
+
+.av-mini-btn:hover,
+.av-btn:hover {
+  border-color: rgba(124, 92, 255, 0.55);
+  background: rgba(124, 92, 255, 0.12);
+  transform: translateY(-1px);
+}
+
+.av-btn.primary {
+  background: linear-gradient(135deg, #6d5dfc, #4f46e5);
+  border-color: transparent;
+  color: white;
+}
+
+.av-btn.green {
+  background: rgba(52, 211, 153, 0.13);
+  border-color: rgba(52, 211, 153, 0.3);
+  color: #a7f3d0;
+}
+
+.av-btn.danger {
+  color: #fecdd3;
+  border-color: rgba(251, 113, 133, 0.25);
+}
+
+/* ===== INPUTS & FORMS ===== */
+.av-input,
+.av-textarea {
+  width: 100%;
+  border: 1px solid #dde3ed;
+  border-radius: var(--radius-field);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font: 500 11px var(--line-height-normal);
+  color: #263247;
+  background: #fff;
+  outline: 0;
+}
+
+.av-textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.av-input:focus,
+.av-textarea:focus {
+  border-color: #a99bfd;
+  box-shadow: 0 0 0 3px rgba(124, 92, 255, 0.08);
+}
+
+/* ===== CANVAS & PAPER ===== */
+.av-scroll {
+  height: calc(100vh - 250px);
+  min-height: 620px;
+  overflow: auto;
+  padding: var(--spacing-2xl) 18px 110px;
+  scroll-behavior: smooth;
+}
+
+.av-canvas {
+  width: min(100%, 1060px);
+  min-height: 900px;
+  margin: 0 auto;
+  background: white;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 42px 46px;
+  position: relative;
+  transition: var(--transition-base);
+}
+
+.av-canvas.paper-a4p {
+  max-width: 794px;
+  min-height: 1123px;
+}
+
+.av-canvas.paper-a4l {
+  max-width: 1123px;
+  min-height: 794px;
+}
+
+.av-canvas.paper-a3p {
+  max-width: 1123px;
+  min-height: 1587px;
+}
+
+.av-canvas.paper-letter {
+  max-width: 816px;
+  min-height: 1056px;
+}
+
+.av-canvas.paper-lined {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 27px,
+    #dbeafe 28px
+  );
+}
+
+.av-canvas.paper-grid,
+.av-canvas.paper-technical {
+  background-image: linear-gradient(#dbeafe 1px, transparent 1px),
+    linear-gradient(90deg, #dbeafe 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.av-canvas.paper-technical {
+  background-image: linear-gradient(rgba(14, 116, 144, 0.13) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 116, 144, 0.13) 1px, transparent 1px),
+    linear-gradient(rgba(14, 116, 144, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 116, 144, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px, 24px 24px, 6px 6px, 6px 6px;
+}
+
+.av-canvas.paper-dots {
+  background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.av-canvas.paper-cornell {
+  background-image: linear-gradient(90deg, transparent 0 29%, rgba(99, 102, 241, 0.18) 29% 29.25%, transparent 29.25%),
+    linear-gradient(transparent 0 82%, rgba(99, 102, 241, 0.18) 82% 82.25%, transparent 82.25%);
+}
+
+.av-canvas.paper-dark {
+  background: #111827;
+  color: #e5e7eb;
+}
+
+.av-canvas.paper-dark .av-block {
+  background: #172033;
+  border-color: #334155;
+  color: #e5e7eb;
+}
+
+/* ========================================
+   SEÇÃO 3: BLOCKS & CARDS
+   ======================================== */
+
+.av-hero {
+  margin-bottom: 22px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #edf0f6;
+}
+
+.av-hero h1 {
+  font: 700 28px var(--font-family-serif);
+  margin: 0;
+  color: #151e31;
+}
+
+.av-pill {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-chip);
+  background: #ede9fe;
+  color: #6d28d9;
+  border: 1px solid #ddd6fe;
+}
+
+.av-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.av-block {
+  border: 1px solid #e1e6ef;
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: var(--radius-card);
+  box-shadow: 0 4px 16px rgba(30, 41, 59, 0.035);
+  position: relative;
+  overflow: hidden;
+}
+
+.av-block.selected {
+  outline: 2px solid rgba(124, 92, 255, 0.34);
+  border-color: #b9aefc;
+}
+
+.av-block-head {
+  height: 38px;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: 0 var(--spacing-sm);
+  border-bottom: 1px solid #edf0f5;
+  background: #fbfcfe;
+}
+
+.av-block-body {
+  padding: 14px;
+}
+
+.av-block-body.no-pad {
+  padding: 0;
+}
+
+/* ========================================
+   SEÇÃO 4: TABELAS & SHEETS
+   ======================================== */
+
+.av-table-wrap {
+  overflow: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-field);
+}
+
+.av-sheet {
+  border-collapse: collapse;
+  min-width: 620px;
+  width: 100%;
+  font-size: 9.5px;
+}
+
+.av-sheet th {
+  background: #f6f8fb;
+  color: #65728a;
+  font-weight: 800;
+  padding: 6px;
+  border: 1px solid #e5e9f0;
+  min-width: 76px;
+}
+
+.av-sheet td {
+  border: 1px solid #e8ebf1;
+  padding: 0;
+}
+
+.av-sheet input {
+  border: 0;
+  width: 100%;
+  padding: 6px 7px;
+  font: 500 9.5px var(--font-family-body);
+  color: #334155;
+  background: transparent;
+  outline: 0;
+}
+
+.av-sheet input.formula {
+  color: #6d28d9;
+  font-weight: 700;
+}
+
+/* ========================================
+   SEÇÃO 5: CRONOGRAMA & GANTT
+   ======================================== */
+
+.av-gantt {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  border: 1px solid #e3e7ee;
+  border-radius: var(--radius-field);
+  overflow: hidden;
+}
+
+.av-gantt-left,
+.av-gantt-right {
+  min-width: 0;
+}
+
+.av-gantt-row {
+  height: 36px;
+  border-bottom: 1px solid #edf0f4;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  font-size: 8.5px;
+  color: #4b5563;
+}
+
+.av-gantt-right .av-gantt-row {
+  position: relative;
+  padding: 0;
+  background-image: linear-gradient(90deg, transparent 24%, #f0f2f5 25%, transparent 26%, transparent 49%, #f0f2f5 50%, transparent 51%, transparent 74%, #f0f2f5 75%, transparent 76%);
+}
+
+.av-gbar {
+  height: 14px;
+  border-radius: var(--radius-chip);
+  background: linear-gradient(90deg, #7c5cff, #38bdf8);
+  position: absolute;
+  top: 11px;
+  min-width: 14px;
+  box-shadow: 0 2px 8px rgba(124, 92, 255, 0.22);
+}
+
+.av-gbar i {
+  height: 100%;
+  background: rgba(255, 255, 255, 0.28);
+  display: block;
+  border-radius: inherit;
+}
+
+.av-milestone {
+  position: absolute;
+  top: -6px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #7c5cff;
+  border: 3px solid #ede9fe;
+  transform: translateX(-50%);
+}
+
+/* ========================================
+   SEÇÃO 6: KANBAN
+   ======================================== */
+
+.av-kanban {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-sm);
+  overflow: auto;
+}
+
+.av-kcol {
+  background: #f7f8fb;
+  border: 1px solid #e7eaf0;
+  border-radius: var(--radius-field);
+  padding: var(--spacing-sm);
+  min-width: 170px;
+}
+
+.av-kcard {
+  background: #fff;
+  border: 1px solid #e0e5ed;
+  border-radius: var(--radius-field);
+  padding: var(--spacing-sm);
+  margin-bottom: 6px;
+  font-size: 9px;
+  color: #3d485b;
+  box-shadow: 0 2px 7px rgba(30, 41, 59, 0.04);
+}
+
+/* ========================================
+   SEÇÃO 7: CODE & IDE
+   ======================================== */
+
+.av-code-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(180px, 0.7fr);
+  background: #0d1423;
+  border-radius: var(--radius-field);
+  overflow: hidden;
+  border: 1px solid #1d2a40;
+}
+
+.av-code {
+  min-height: 210px;
+  background: #0d1423;
+  color: #d7e2f7;
+  border: 0;
+  outline: 0;
+  resize: vertical;
+  padding: 12px;
+  font: 500 10px var(--line-height-normal) var(--font-family-mono);
+  width: 100%;
+}
+
+.av-console {
+  border-left: 1px solid #21304a;
+  padding: 10px;
+  color: #7dd3fc;
+  font: 500 9px var(--line-height-normal) var(--font-family-mono);
+  white-space: pre-wrap;
+  min-height: 210px;
+}
+
+/* ========================================
+   SEÇÃO 8: DASHBOARD & KPI
+   ======================================== */
+
+.av-dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-sm);
+}
+
+.av-kpi-card {
+  border: 1px solid #e6eaf1;
+  border-radius: var(--radius-field);
+  padding: var(--spacing-sm);
+  background: #fff;
+}
+
+.av-chart-box {
+  border: 1px solid #e7eaf0;
+  border-radius: var(--radius-field);
+  padding: var(--spacing-sm);
+  min-height: 160px;
+}
+
+.av-chart-box canvas {
+  width: 100%;
+  height: 140px;
+  display: block;
+}
+
+/* ========================================
+   SEÇÃO 9: CANVAS DRAWING (CAD)
+   ======================================== */
+
+.av-cad {
+  display: grid;
+  grid-template-columns: 1fr 205px;
+  gap: var(--spacing-sm);
+}
+
+.av-cad-stage {
+  border: 1px solid #18365f;
+  border-radius: var(--radius-field);
+  overflow: hidden;
+  background: #071426;
+  position: relative;
+}
+
+.av-cad-stage canvas {
+  width: 100%;
+  height: 380px;
+  display: block;
+  touch-action: none;
+}
+
+.av-cad-tools {
+  border: 1px solid #e3e7ee;
+  border-radius: var(--radius-field);
+  padding: var(--spacing-sm);
+  background: #f8fafc;
+}
+
+.av-cad-hud {
+  position: absolute;
+  top: var(--spacing-sm);
+  left: var(--spacing-sm);
+  z-index: var(--z-floating);
+  padding: var(--spacing-xs) var(--spacing-xs);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  border-radius: var(--radius-field);
+  background: rgba(2, 12, 24, 0.72);
+  color: #a5f3fc;
+  font: 700 7.5px var(--font-family-mono);
+  pointer-events: none;
+}
+
+/* ========================================
+   SEÇÃO 10: MODAIS & FLOATING
+   ======================================== */
+
+.av-template-modal,
+.av-command-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 7, 18, 0.68);
+  backdrop-filter: blur(8px);
+  z-index: var(--z-modal);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.av-template-modal.open,
+.av-command-modal.open {
+  display: flex;
+}
+
+.av-modal-card {
+  width: min(1040px, 96vw);
+  max-height: 88vh;
+  background: #f8fafc;
+  border-radius: var(--radius-modal);
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.38);
+  overflow: hidden;
+  color: #172033;
+}
+
+.av-insert-dock {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20px;
+  z-index: var(--z-floating);
+  max-width: min(1100px, calc(100vw - 40px));
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  background: rgba(11, 20, 39, 0.94);
+  backdrop-filter: blur(18px);
+  padding: var(--spacing-xs);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: var(--radius-modal);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.3);
+  overflow: auto;
+}
+
+.av-dock-btn {
+  flex: 0 0 auto;
+  border: 0;
+  background: transparent;
+  color: #9fb0cc;
+  border-radius: var(--radius-field);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  min-width: 48px;
+  cursor: pointer;
+  font: 700 7.5px var(--font-family-body);
+  text-align: center;
+  transition: var(--transition-base);
+}
+
+.av-dock-btn:hover {
+  background: rgba(124, 92, 255, 0.18);
+  color: #fff;
+}
+
+.av-dock-btn.ai {
+  background: linear-gradient(135deg, #6d5dfc, #4f46e5);
+  color: white;
+}
+
+.av-toast {
+  position: fixed;
+  right: 20px;
+  bottom: 88px;
+  z-index: var(--z-notification);
+  background: #101827;
+  color: white;
+  border: 1px solid #273550;
+  border-radius: var(--radius-field);
+  padding: 10px 13px;
+  font: 600 10px var(--font-family-body);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: var(--transition-base);
+}
+
+.av-toast.show {
+  opacity: 1;
+  transform: none;
+}
+
+/* ========================================
+   SEÇÃO 11: AI ASSISTANT PANEL
+   ======================================== */
+
+.av-ai-head {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
+}
+
+.av-ai-orb {
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #7c5cff, #38bdf8);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 8px 22px rgba(124, 92, 255, 0.25);
+}
+
+.av-ai-card {
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  background: rgba(255, 255, 255, 0.035);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* ========================================
+   SEÇÃO 12: KEYBOARD OVERLAY
+   ======================================== */
+
+.av-keyboard {
+  position: fixed;
+  left: 50%;
+  bottom: 14px;
+  transform: translate(-50%, 120%);
+  width: min(960px, 94vw);
+  z-index: var(--z-keyboard);
+  padding: var(--spacing-sm);
+  border: 1px solid #34445f;
+  border-radius: var(--radius-modal);
+  background: rgba(8, 17, 31, 0.97);
+  box-shadow: 0 28px 90px rgba(2, 6, 23, 0.5);
+  backdrop-filter: blur(14px);
+  transition: transform var(--transition-base) ease;
+  user-select: none;
+}
+
+.av-keyboard.open {
+  transform: translate(-50%, 0);
+}
+
+.av-kbd-row {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-xs);
+}
+
+.av-kbd-row button {
+  min-width: 46px;
+  height: 36px;
+  padding: 0 var(--spacing-sm);
+  border: 1px solid #263a57;
+  border-radius: var(--radius-field);
+  background: linear-gradient(180deg, #16243a, #0e1a2c);
+  color: #e6f0ff;
+  box-shadow: 0 2px 0 #050b14;
+  font: 700 10px var(--font-family-body);
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.av-kbd-row button:hover {
+  background: #1b3151;
+}
+
+.av-kbd-row button:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+/* ========================================
+   SEÇÃO 13: INTEGRATION ENGINE
+   ======================================== */
+
+.av-integration-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 7, 18, 0.7);
+  backdrop-filter: blur(12px);
+  z-index: var(--z-integration);
+  display: none;
+  place-items: center;
+  padding: 20px;
+}
+
+.av-integration-modal.show {
+  display: grid;
+}
+
+.av-integration-card {
+  width: min(1180px, 96vw);
+  max-height: 92vh;
+  overflow: auto;
+  background: linear-gradient(180deg, #f8fbff, #f6f3ff);
+  border: 1px solid rgba(196, 181, 253, 0.7);
+  border-radius: var(--radius-modal);
+  box-shadow: 0 35px 120px rgba(15, 23, 42, 0.45);
+  color: #1e293b;
+}
+
+/* ========================================
+   SEÇÃO 14: RESPONSIVE DESIGN
+   Breakpoints Padronizados
+   ======================================== */
+
+/* Tablet Grande (1180px) */
+@media (max-width: 1180px) {
+  .av-shell {
+    grid-template-columns: 210px minmax(500px, 1fr);
+  }
+
+  .av-ai-side {
+    display: none;
+  }
+
+  .av-insert-dock {
+    max-width: calc(100vw - 30px);
+  }
+
+  .av-ide-body {
+    grid-template-columns: 135px minmax(0, 1fr);
+  }
+
+  .av-console-pro {
+    grid-column: 1 / -1;
+    border-left: 0 !important;
+    border-top: 1px solid #1b2a40 !important;
+  }
+
+  .av-cad,
+  .av-3d {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tablet (820px - 1100px) */
+@media (max-width: 1100px) {
+  .av-bi-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .av-slides-pro {
+    grid-template-columns: 1fr;
+  }
+
+  .av-slide-list {
+    max-height: 120px;
+  }
+
+  .av-av-v26-collab-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .av-v26-suggest {
+    right: 12px;
+    left: 12px;
+    max-width: none;
+    bottom: 82px;
+    overflow: auto;
+  }
+}
+
+@media (max-width: 820px) {
+  .av-shell {
+    display: block;
+    border-radius: var(--radius-card);
+  }
+
+  .av-side {
+    display: none;
+  }
+
+  .av-main {
+    min-height: calc(100vh - 130px);
+  }
+
+  .av-topbar {
+    padding: 0 var(--spacing-sm);
+  }
+
+  .av-status {
+    display: none;
+  }
+
+  .av-top-actions .av-btn:not(.primary):not([data-av-full]) {
+    display: none;
+  }
+
+  .av-paperbar {
+    padding: 6px var(--spacing-sm);
+  }
+
+  .av-scroll {
+    height: calc(100vh - 230px);
+    padding: var(--spacing-sm) 8px 100px;
+  }
+
+  .av-canvas {
+    padding: 24px 16px;
+    border-radius: var(--radius-field);
+    min-height: 1000px;
+  }
+
+  .av-dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .av-dash-charts,
+  .av-calc,
+  .av-cad,
+  .av-3d,
+  .av-focus,
+  .av-code-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .av-kanban {
+    grid-template-columns: repeat(3, 170px);
+  }
+
+  .av-slides {
+    grid-template-columns: 1fr;
+  }
+
+  .av-slide-list {
+    display: flex;
+    gap: var(--spacing-xs);
+    overflow: auto;
+  }
+
+  .av-slide-thumb {
+    min-width: 100px;
+  }
+
+  .av-cad-tools,
+  .av-3d-panel {
+    display: block;
+  }
+
+  .av-insert-dock {
+    left: 8px;
+    right: 8px;
+    transform: none;
+    max-width: none;
+  }
+
+  .av-dock-btn {
+    min-width: 45px;
+  }
+
+  .av-hero h1 {
+    font-size: 24px;
+  }
+}
+
+/* Mobile (700px - 820px) */
+@media (max-width: 800px) {
+  .av-bi-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .av-richbar-pro {
+    position: static;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+  }
+
+  .av-rich-select {
+    min-width: 90px;
+  }
+
+  .av-ide-body {
+    display: block;
+  }
+
+  .av-ide-explorer {
+    border-right: 0;
+    border-bottom: 1px solid #1b2a40;
+    max-height: 130px;
+    overflow: auto;
+  }
+
+  .av-code-wrap {
+    grid-template-columns: 34px minmax(0, 1fr);
+  }
+
+  .av-code-minimap {
+    display: none;
+  }
+
+  .av-ide-status {
+    overflow: auto;
+    white-space: nowrap;
+  }
+
+  .av-tool-grid-pro {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .av-cad-properties {
+    grid-template-columns: 1fr;
+  }
+
+  .av-cad-stage canvas,
+  .av-3d-stage canvas {
+    height: 340px;
+  }
+
+  .av-prop-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .av-kbd-row {
+    gap: 3px;
+  }
+
+  .av-kbd-row button {
+    min-width: 30px;
+    height: 34px;
+    padding: 0 5px;
+    font-size: 9px;
+  }
+
+  .av-keyboard {
+    width: 98vw;
+    bottom: 4px;
+    padding: 5px;
+  }
+}
+
+/* Mobile Pequeno (560px - 700px) */
+@media (max-width: 700px) {
+  .av-integration-modal {
+    padding: 4px;
+  }
+
+  .av-integration-card {
+    width: 99vw;
+    max-height: 97vh;
+    border-radius: var(--radius-card);
+  }
+
+  .av-integration-card > #avIntegrationBody {
+    padding: var(--spacing-xs);
+  }
+
+  .av-integration-head {
+    padding: var(--spacing-sm);
+  }
+
+  .av-integration-head p,
+  .av-int-live {
+    display: none;
+  }
+
+  .av-int-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .av-var-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .av-int-rule {
+    grid-template-columns: 1fr;
+  }
+
+  .av-int-row {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .av-int-row > * {
+    min-width: 0 !important;
+  }
+
+  .av-top-actions .av-integration-top span {
+    display: none;
+  }
+}
+
+/* ========================================
+   SEÇÃO 15: FULLSCREEN & PRINT
+   ======================================== */
+
+.av-fullscreen .av-shell {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  border-radius: 0;
+  min-height: 100vh;
+}
+
+.av-fullscreen .av-scroll {
+  height: calc(100vh - 105px);
+}
+
+.av-fullscreen .av-ai-side {
+  max-height: 100vh;
+}
+
+.av-fullscreen .av-insert-dock {
+  z-index: 9100;
+}
+
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
+
+  #orbitaInfinityRoot,
+  #orbitaInfinityRoot * {
+    visibility: visible !important;
+  }
+
+  .av-shell {
+    display: block !important;
+    background: white !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .av-side,
+  .av-ai-side,
+  .av-topbar,
+  .av-paperbar,
+  .av-insert-dock,
+  .av-block-head,
+  .av-template-modal,
+  .av-command-modal {
+    display: none !important;
+  }
+
+  .av-main {
+    background: white !important;
+  }
+
+  .av-scroll {
+    height: auto !important;
+    overflow: visible !important;
+    padding: 0 !important;
+  }
+
+  .av-canvas {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    padding: 20px !important;
+  }
+
+  .av-block {
+    break-inside: avoid;
+    box-shadow: none !important;
+  }
+}
+
+/* ========================================
+   SEÇÃO 16: DARK MODE (Compatibilidade)
+   ======================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    /* Cores de fundo dark modo */
+    --color-page: var(--dark-page);
+    --color-surface: var(--dark-surface);
+  }
+}
+
+:root[data-theme="dark"] {
+  --color-page: var(--dark-page);
+  --color-surface: var(--dark-surface);
+}
