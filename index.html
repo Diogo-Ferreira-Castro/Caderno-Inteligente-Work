@@ -3,19 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Caderno Inteligente Work V2 — Tablet Pro</title>
+<title>Caderno Inteligente Work — Caderno profissional</title>
 <link rel="manifest" href="./manifest.webmanifest">
-<meta name="theme-color" content="#2a78d6">
+<meta name="theme-color" content="#050811">
 <meta name="color-scheme" content="light dark">
-<meta name="description" content="Central de estudos pessoal: tarefas, calendário, revisão espaçada, foco, questões e desempenho.">
+<meta name="description" content="Caderno profissional inteligente para anotações, documentos, planilhas, projetos, CAD, BI, código, PDF, S Pen, IA, histórico e colaboração.">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Caderno Work">
+<meta name="apple-mobile-web-app-title" content="Caderno Inteligente">
 <link rel="apple-touch-icon" href="./icons/icon-180.png">
 <link rel="icon" href="./icons/icon-192.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap">
 <style>
   :root{
     color-scheme: light;
@@ -902,57 +899,140 @@
     .cal-cell{ min-height: 58px; }
   }
 </style>
-  <link rel="stylesheet" href="./orbita-infinity.css?v=27">
-<link rel="stylesheet" href="./orbita-v27.css?v=27">
-<link rel="stylesheet" href="./caderno-work.css?v=2">
+  <link rel="stylesheet" href="./orbita-infinity.css?v=30">
+<link rel="stylesheet" href="./caderno-work.css?v=3">
 </head>
 <body class="gate-locked work-standalone">
 <div class="work-global-header" id="workGlobalHeader">
-  <div class="work-brand"><span>◉</span><div><b>CADERNO INTELIGENTE</b><small>WORK V2 · TABLET PRO</small></div></div>
-  <div class="work-context"><span class="work-chip good" id="workSaveChip">● Pronto</span><span class="work-chip good" id="workNetChip">● Online</span><span class="work-chip" id="workDeviceChip">▭ Tablet</span></div>
+  <div class="work-brand">
+    <img class="work-brand-logo" src="./icons/icon-192.png" alt="Caderno Inteligente Work">
+    <div class="work-brand-copy"><b>CADERNO INTELIGENTE WORK</b><small>V3 FINAL · CADERNO PROFISSIONAL</small></div>
+  </div>
+  <div class="work-context">
+    <span class="work-chip good" id="workSaveChip">● Pronto</span>
+    <span class="work-chip good" id="workNetChip">● Online</span>
+    <span class="work-chip" id="workDeviceChip">Desktop</span>
+    <button class="work-chip work-account-chip" id="workAccountChip" data-work-account>Conta</button>
+  </div>
   <div class="work-global-actions">
-    <button class="work-icon-only" data-work-undo title="Desfazer">↶</button><button class="work-icon-only" data-work-redo title="Refazer">↷</button>
-    <button data-work-templates>✨ Modelos</button><button data-work-history>📜 Histórico</button><button data-work-saveas>💾 Salvar como</button>
-    <button class="primary" data-work-full>⛶ Tela cheia</button><button class="work-icon-only" data-work-menu title="Central rápida">☰</button>
+    <button class="work-search-btn" data-work-search title="Comandos e busca"><svg class="wi sm" aria-hidden="true"><use href="./work-icons.svg#search"></use></svg><span class="lbl">Buscar</span><span class="work-kbd">Ctrl K</span></button>
+    <button class="work-icon-only" data-work-undo title="Desfazer"><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#undo"></use></svg></button>
+    <button class="work-icon-only" data-work-redo title="Refazer"><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#redo"></use></svg></button>
+    <button data-work-cover data-work-hide-mobile title="Capa do caderno"><svg class="wi sm" aria-hidden="true"><use href="./work-icons.svg#cover"></use></svg><span class="lbl">Capa</span></button>
+    <button data-work-history data-work-desktop-only title="Histórico"><svg class="wi sm" aria-hidden="true"><use href="./work-icons.svg#history"></use></svg><span class="lbl">Histórico</span></button>
+    <button data-work-backup data-work-desktop-only title="Backup de dados"><svg class="wi sm" aria-hidden="true"><use href="./work-icons.svg#backup"></use></svg><span class="lbl">Backup</span></button>
+    <button class="primary" data-work-full title="Tela cheia"><svg class="wi sm" aria-hidden="true"><use href="./work-icons.svg#fullscreen"></use></svg><span class="lbl">Tela cheia</span></button>
+    <button class="work-icon-only" data-work-menu title="Central rápida"><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#menu"></use></svg></button>
   </div>
 </div>
-<button class="work-full-fab" data-work-full title="Tela cheia" aria-label="Tela cheia">⛶</button>
-<aside class="work-tool-rail" id="workToolRail">
-  <button data-work-add="text" title="Documento">📝<span>Documento</span></button>
-  <button data-work-add="sheet" title="Planilha">📊<span>Planilha</span></button>
-  <button data-work-add="slides" title="Slides">🖥️<span>Slides</span></button>
-  <button data-work-add="gantt" title="Project">🗓️<span>Project</span></button>
-  <button data-work-add="dashboard" title="BI">📈<span>BI</span></button>
-  <button data-work-add="cad2d" title="CAD 2D">📐<span>CAD 2D</span></button>
-  <button data-work-add="model3d" title="3D">🧊<span>3D</span></button>
-  <button data-work-add="design" title="Caneta / Quadro">✍️<span>Caneta</span></button>
-  <button data-work-add="code" title="Studio">💻<span>Studio</span></button>
-  <button data-work-add="media" title="PDF / arquivos">📄<span>PDF</span></button>
-  <button data-work-add="calculator" title="Calculadora">🧮<span>Cálculo</span></button>
+
+<aside class="work-tool-rail" id="workToolRail" aria-label="Ferramentas do caderno">
+  <button data-work-new title="Novo caderno"><svg class="wi lg" aria-hidden="true"><use href="./work-icons.svg#notebook"></use></svg><span>Novo</span></button>
+  <div class="rail-sep"></div>
+  <button data-work-add="text" title="Documento"><svg class="wi lg" aria-hidden="true"><use href="./work-icons.svg#text"></use></svg><span>Texto</span></button>
+  <button data-work-add="design" title="Caneta / S Pen"><svg class="wi lg" aria-hidden="true"><use href="./work-icons.svg#pen"></use></svg><span>Caneta</span></button>
+  <button data-work-capture title="PDF, foto e arquivo"><svg class="wi lg" aria-hidden="true"><use href="./work-icons.svg#file"></use></svg><span>Arquivo</span></button>
+  <button data-work-add="sheet" title="Planilha"><svg class="wi lg" aria-hidden="true"><use href="./work-icons.svg#sheet"></use></svg><span>Planilha</span></button>
+  <button data-work-add="checklist" title="Checklist"><svg class="wi lg" aria-hidden="true"><use href="./work-icons.svg#check"></use></svg><span>Checklist</span></button>
+  <button data-work-add="gantt" title="Project / cronograma"><svg class="wi lg" aria-hidden="true"><use href="./work-icons.svg#calendar"></use></svg><span>Project</span></button>
+  <button data-work-add="dashboard" title="Dashboard BI"><svg class="wi lg" aria-hidden="true"><use href="./work-icons.svg#chart"></use></svg><span>BI</span></button>
+  <button data-work-add="cad2d" title="CAD 2D"><svg class="wi lg" aria-hidden="true"><use href="./work-icons.svg#ruler"></use></svg><span>CAD 2D</span></button>
+  <button data-work-add="model3d" title="3D"><svg class="wi lg" aria-hidden="true"><use href="./work-icons.svg#cube"></use></svg><span>3D</span></button>
+  <button data-work-add="code" title="Studio / código"><svg class="wi lg" aria-hidden="true"><use href="./work-icons.svg#code"></use></svg><span>Studio</span></button>
+  <button data-work-add="database" title="Banco de dados"><svg class="wi lg" aria-hidden="true"><use href="./work-icons.svg#database"></use></svg><span>Dados</span></button>
+  <button data-work-add="diagram" title="Diagrama"><svg class="wi lg" aria-hidden="true"><use href="./work-icons.svg#diagram"></use></svg><span>Fluxo</span></button>
+  <button class="rail-bottom" data-work-navigator title="Navegar no caderno"><svg class="wi lg" aria-hidden="true"><use href="./work-icons.svg#search"></use></svg><span>Navegar</span></button>
 </aside>
-<div class="work-tablet-bar" aria-label="Atalhos para tablet"><div><button data-work-annotate title="Anotação rápida">✍️</button><button data-work-penonly title="S Pen Only">🖊</button><button data-work-keyboard title="Teclado virtual">⌨</button><button data-work-ai title="IA do arquivo">🤖</button><button data-work-focus title="Modo foco">🎯</button><button data-work-menu title="Mais opções">☰</button></div></div>
+
+<div class="work-tablet-bar" aria-label="Atalhos para tablet"><div>
+  <button data-work-add="design" title="Caneta"><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#pen"></use></svg></button>
+  <button data-work-penonly title="S Pen Only"><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#focus"></use></svg></button>
+  <button data-work-add="text" title="Texto"><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#text"></use></svg></button>
+  <button data-work-capture title="Arquivo / foto"><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#camera"></use></svg></button>
+  <button data-work-dictate title="Ditado por voz"><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#mic"></use></svg></button>
+  <button data-work-search title="Buscar / comandos"><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#search"></use></svg></button>
+  <button data-work-ai title="IA do arquivo"><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#spark"></use></svg></button>
+  <button data-work-menu title="Mais"><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#menu"></use></svg></button>
+</div></div>
+
 <aside class="work-quick-panel" id="workQuickPanel" aria-hidden="true">
-  <div class="work-quick-head"><div><b>Central rápida</b><span>Tablet · S Pen · produtividade</span></div><button data-work-panel-close>✕</button></div>
-  <div class="work-quick-body">
-    <section class="work-q-section"><div class="work-q-title">Workspace</div><div class="work-q-grid"><button data-work-focus>🎯 Modo foco</button><button data-work-compact>↕ Compactar</button><button data-work-full>⛶ Tela cheia</button><button data-work-theme>🌓 Tema</button></div></section>
-    <section class="work-q-section"><div class="work-q-title">S Pen / tablet</div><div class="work-q-grid"><button data-work-penonly>🖊 S Pen Only</button><button data-work-annotate>✍️ Página manuscrita</button><button data-work-keyboard>⌨ Teclado virtual</button><button data-work-awake>☀ Manter tela ativa</button></div><div class="work-q-note">S Pen Only bloqueia o toque da mão nos quadros de desenho e CAD, mantendo a caneta ativa.</div></section>
-    <section class="work-q-section"><div class="work-q-title">Criação rápida</div><div class="work-q-grid"><button data-work-add="text">📝 Documento</button><button data-work-add="sheet">📊 Planilha</button><button data-work-add="gantt">🗓️ Project</button><button data-work-add="dashboard">📈 BI</button><button data-work-add="cad2d">📐 CAD 2D</button><button data-work-add="model3d">🧊 3D</button><button data-work-capture>📎 Arquivo / foto</button><button data-work-ai>🤖 IA do arquivo</button></div></section>
-    <section class="work-q-section"><div class="work-q-title">Controle</div><div class="work-q-grid"><button data-work-undo>↶ Desfazer</button><button data-work-redo>↷ Refazer</button><button data-work-history>📜 Histórico</button><button data-work-saveas>💾 Salvar como</button><button data-work-collab>👥 Colaborar</button><button data-work-install>📲 Instalar app</button></div></section>
-    <section class="work-q-section"><div class="work-q-title">Visualização</div><div class="work-range-row"><span>Zoom</span><input type="range" min="80" max="125" step="5" value="100" data-work-scale><b data-work-scale-value>100%</b></div><div class="work-q-note">Atalhos: Ctrl+Shift+F = foco · Ctrl+Shift+P = S Pen Only · Esc fecha esta central.</div></section>
+  <div class="work-panel-head"><div><b>Central do Caderno</b><span>Ferramentas, conta, backup e visualização</span></div><button data-work-panel-close>✕</button></div>
+  <div class="work-panel-body">
+    <section class="work-q-section"><div class="work-q-title">Caderno</div><div class="work-q-grid">
+      <button data-work-new><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#notebook"></use></svg><span class="lbl">Novo caderno</span></button><button data-work-cover><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#cover"></use></svg><span class="lbl">Capa personalizada</span></button>
+      <button data-work-navigator><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#search"></use></svg><span class="lbl">Navegar / buscar</span></button><button data-work-templates><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#spark"></use></svg><span class="lbl">Modelos prontos</span></button>
+    </div></section>
+    <section class="work-q-section"><div class="work-q-title">Escrever e capturar</div><div class="work-q-grid">
+      <button data-work-add="text"><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#text"></use></svg><span class="lbl">Documento</span></button><button data-work-add="design"><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#pen"></use></svg><span class="lbl">Página manuscrita</span></button>
+      <button data-work-capture><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#camera"></use></svg><span class="lbl">Arquivo / foto / PDF</span></button><button data-work-dictate><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#mic"></use></svg><span class="lbl">Ditado por voz</span></button>
+      <button data-work-keyboard><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#keyboard"></use></svg><span class="lbl">Teclado virtual</span></button><button data-work-ai><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#spark"></use></svg><span class="lbl">IA do arquivo</span></button>
+    </div></section>
+    <section class="work-q-section"><div class="work-q-title">Ferramentas profissionais</div><div class="work-q-grid">
+      <button data-work-add="sheet"><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#sheet"></use></svg><span class="lbl">Planilha</span></button><button data-work-add="slides"><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#slides"></use></svg><span class="lbl">Slides</span></button>
+      <button data-work-add="gantt"><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#calendar"></use></svg><span class="lbl">Project</span></button><button data-work-add="dashboard"><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#chart"></use></svg><span class="lbl">BI</span></button>
+      <button data-work-add="cad2d"><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#ruler"></use></svg><span class="lbl">CAD 2D</span></button><button data-work-add="model3d"><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#cube"></use></svg><span class="lbl">3D</span></button>
+      <button data-work-add="code"><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#code"></use></svg><span class="lbl">Studio / IDE</span></button><button data-work-add="database"><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#database"></use></svg><span class="lbl">Banco de dados</span></button>
+      <button data-work-add="diagram"><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#diagram"></use></svg><span class="lbl">Fluxograma</span></button><button data-work-add="form"><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#form"></use></svg><span class="lbl">Formulário</span></button>
+      <button data-work-add="calculator"><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#calculator"></use></svg><span class="lbl">Calculadora</span></button><button data-work-add="checklist"><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#check"></use></svg><span class="lbl">Checklist</span></button>
+    </div></section>
+    <section class="work-q-section"><div class="work-q-title">Tablet / S Pen</div><div class="work-q-grid">
+      <button data-work-penonly><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#focus"></use></svg><span class="lbl">S Pen Only</span></button><button data-work-awake><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#fullscreen"></use></svg><span class="lbl">Manter tela ativa</span></button>
+      <button data-work-focus><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#focus"></use></svg><span class="lbl">Modo foco</span></button><button data-work-full><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#fullscreen"></use></svg><span class="lbl">Tela cheia</span></button>
+    </div><div class="work-q-note">S Pen Only bloqueia o toque da mão nos quadros de desenho e CAD sem bloquear rolagem.</div></section>
+    <section class="work-q-section"><div class="work-q-title">Conta, nuvem e segurança</div><div class="work-q-grid">
+      <button data-work-account><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#user"></use></svg><span class="lbl">Entrar / Criar conta</span></button><button data-work-collab><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#cloud"></use></svg><span class="lbl">Colaborar</span></button>
+      <button data-work-history><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#history"></use></svg><span class="lbl">Histórico</span></button><button data-work-saveas><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#save"></use></svg><span class="lbl">Salvar como</span></button>
+      <button data-work-backup><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#backup"></use></svg><span class="lbl">Backup de dados</span></button><button data-work-export><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#file"></use></svg><span class="lbl">Exportar arquivo</span></button>
+      <button data-work-install><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#notebook"></use></svg><span class="lbl">Instalar aplicativo</span></button><button data-work-present><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#slides"></use></svg><span class="lbl">Apresentar</span></button>
+    </div></section>
+    <section class="work-q-section"><div class="work-q-title">Performance e visualização</div><div class="work-q-grid">
+      <button data-work-compact><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#menu"></use></svg><span class="lbl">Modo compacto</span></button><button data-work-lite><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#spark"></use></svg><span class="lbl">Desempenho máximo</span></button>
+      <button data-work-theme><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#cover"></use></svg><span class="lbl">Tema claro/escuro</span></button><button data-work-search><svg class="wi " aria-hidden="true"><use href="./work-icons.svg#search"></use></svg><span class="lbl">Paleta Ctrl+K</span></button>
+    </div><div class="work-range-row" style="margin-top:10px"><span>Zoom</span><input type="range" min="80" max="125" step="5" value="100" data-work-scale><b data-work-scale-value>100%</b></div>
+    <div class="work-q-note">Atalhos: Ctrl+K comandos · Ctrl+F navegar · Ctrl+Shift+F foco · Ctrl+Shift+P S Pen Only.</div></section>
   </div>
 </aside>
+
+<aside class="work-navigator" id="workNavigator" aria-hidden="true">
+  <div class="work-panel-head"><div><b>Navegar no caderno</b><span>Busque blocos, seções e conteúdo do arquivo atual</span></div><button data-work-nav-close>✕</button></div>
+  <div class="work-panel-body"><div class="work-nav-search"><input id="workNavSearch" placeholder="Buscar neste caderno…"></div><div class="work-nav-list" id="workNavList"></div></div>
+</aside>
+
+<div class="work-cover" id="workCover" aria-hidden="true">
+  <div class="work-cover-card">
+    <button class="work-cover-close" data-cover-close>✕</button>
+    <section class="work-cover-visual">
+      <div class="work-cover-brand"><img src="./icons/icon-192.png" alt=""><div><b>CADERNO INTELIGENTE WORK</b><small>IDEIAS · PROJETOS · DOCUMENTOS · CAMPO</small></div></div>
+      <div class="work-cover-main"><div class="eyebrow" id="workCoverName">Workspace profissional</div><h1 id="workCoverTitle">Caderno Inteligente Work</h1><p id="workCoverSubtitle">Seu trabalho, ideias, arquivos e projetos em um único caderno.</p></div>
+      <div class="work-cover-foot"><span>Salvamento automático</span><span>Offline + Supabase</span><span>S Pen / Tablet Pro</span></div>
+    </section>
+    <aside class="work-cover-side">
+      <div><h2>Seu caderno está pronto.</h2><p id="workCoverLast">Continue exatamente de onde parou.</p></div>
+      <div class="work-cover-actions"><button class="primary" data-cover-open>Abrir Caderno</button><button data-cover-new>Novo caderno</button><button data-cover-edit>Personalizar capa</button></div>
+      <div class="work-cover-edit" id="workCoverEdit" hidden>
+        <input id="coverTitleInput" maxlength="80" placeholder="Título da capa"><textarea id="coverSubtitleInput" maxlength="220" placeholder="Descrição"></textarea><input id="coverNameInput" maxlength="80" placeholder="Nome / área / empresa">
+        <div class="work-cover-themes"><button class="work-cover-theme" data-cover-theme="aurora" title="Aurora"></button><button class="work-cover-theme" data-cover-theme="carbon" title="Carbon"></button><button class="work-cover-theme" data-cover-theme="ocean" title="Ocean"></button><button class="work-cover-theme" data-cover-theme="paper" title="Paper"></button></div>
+        <label class="work-q-note"><input type="checkbox" id="coverShowStart"> Mostrar capa ao abrir o aplicativo</label><button data-cover-save>Salvar personalização</button>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<div class="work-command" id="workCommand" aria-hidden="true">
+  <div class="work-command-card"><div class="work-command-search"><svg class="wi lg" aria-hidden="true"><use href="./work-icons.svg#search"></use></svg><input id="workCommandInput" placeholder="Buscar ferramenta ou comando…" autocomplete="off"><button class="work-icon-only" data-work-command-close>✕</button></div><div class="work-command-list" id="workCommandList"></div></div>
+</div>
 <div class="gate" id="authGate">
   <div class="gate-card">
     <div class="gate-brand">
-      <div class="brand-mark">🪐</div>
+      <div class="brand-mark"><img src="./icons/icon-192.png" alt=""></div>
       <div>
-        <div class="gb-name">Órbita</div>
-        <div class="gb-sub">Central de estudos pessoal</div>
+        <div class="gb-name">Caderno Inteligente Work</div>
+        <div class="gb-sub">Seu workspace profissional</div>
       </div>
     </div>
     <div class="gate-offline" id="gateOffline">Sem internet — entrando pelo acesso salvo neste aparelho.</div>
     <h2 id="gateTitle">Entrar</h2>
-    <div class="gate-sub" id="gateSub">Acesse com sua conta para abrir a central de estudos.</div>
+    <div class="gate-sub" id="gateSub">Acesse seus cadernos, arquivos e projetos sincronizados.</div>
 
     <div class="field"><input type="email" id="gateEmail" placeholder="seu@email.com" autocomplete="username" inputmode="email"></div>
     <div class="field pass-wrap"><input type="password" id="gatePass" placeholder="Senha" autocomplete="current-password" autocapitalize="off" spellcheck="false"><button type="button" class="pass-toggle" id="gatePassToggle" aria-label="Mostrar ou ocultar a senha" title="Mostrar senha">👁</button></div>
@@ -3421,6 +3501,13 @@
   }
   function renderAll(){
     normalize();
+    /* WORK V3 PERFORMANCE: o aplicativo independente usa somente o Caderno.
+       Evita redesenhar Painel, Calendário, gráficos e telas de estudo ocultas a cada autosave. */
+    if (document.body && document.body.classList.contains("work-standalone")){
+      renderHeader();
+      try{ window.dispatchEvent(new CustomEvent("orbita:data")); }catch(e){}
+      return;
+    }
     renderHeader();
     renderHealth();
     renderPainelKpis();
@@ -5090,8 +5177,8 @@
     } else {
       gEl("gateTitle").textContent = "Entrar";
       gEl("gateSub").textContent = hasServer
-        ? "Acesse com sua conta para abrir a central de estudos."
-        : "Digite sua senha para abrir a central de estudos.";
+        ? "Acesse seus cadernos, arquivos e projetos sincronizados."
+        : "Digite sua senha para abrir o Caderno.";
       gEl("gatePrimary").textContent = "Entrar";
       gEl("gateConfirmWrap").style.display = "none";
       gEl("gateSignup").style.display = hasServer ? "" : "none";
@@ -5376,8 +5463,7 @@
   }
 })();
 </script>
-<script src="./orbita-infinity.js?v=27"></script>
-<script src="./orbita-v27.js?v=27"></script>
-<script src="./caderno-work.js?v=2"></script>
+<script src="./orbita-infinity.js?v=30"></script>
+<script src="./caderno-work.js?v=3"></script>
 </body>
 </html>

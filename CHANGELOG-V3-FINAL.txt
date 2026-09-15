@@ -1,0 +1,20 @@
+CADERNO INTELIGENTE WORK — V3 FINAL
+
+- Redesign notebook-first; removida linguagem de "central de estudos" do shell Work.
+- Novo ícone próprio (caderno + caneta neon) para PWA/tablet/desktop.
+- Nova capa personalizada com título, subtítulo, identificação e 4 temas.
+- Nova paleta Ctrl+K.
+- Navegador/busca do arquivo atual.
+- Novo ditado por voz.
+- Backup completo JSON.
+- Novo rail profissional e dock específico para tablet.
+- Novos modelos profissionais de trabalho.
+- Rebranding Área/Projeto no lugar de Matéria dentro do Work.
+- Melhorias de login/conta Supabase.
+- Atualização PWA com novos atalhos de sistema.
+- Service worker V3 com atualização segura e offline.
+- Modo desempenho máximo.
+- Melhorias de responsividade e ergonomia S Pen.
+- Dependência de Google Fonts removida para carregar mais rápido e funcionar melhor offline.
+- Preservados Office, BI, Project, CAD 2D/3D, Studio, PDF, calculadora,
+  Integration Engine, histórico, colaboração e sugestões contextuais.

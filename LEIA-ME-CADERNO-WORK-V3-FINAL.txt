@@ -1,0 +1,50 @@
+CADERNO INTELIGENTE WORK V3 FINAL
+=================================
+
+OBJETIVO
+- Aplicativo independente de caderno profissional.
+- Não é uma central de estudos.
+- Desktop, tablet, celular e S Pen.
+
+PRINCIPAIS RECURSOS
+- Capa personalizada com 4 estilos e abertura opcional.
+- Paleta rápida Ctrl+K com busca de comandos e ferramentas.
+- Navegação/busca dentro do arquivo atual (Ctrl+F quando fora de campos de texto).
+- Documento, manuscrito/S Pen, PDF/fotos, planilha, checklist, Project/Gantt, BI,
+  CAD 2D, 3D, Studio/IDE, banco de dados, fluxograma, formulário, calculadora e slides.
+- Ditado por voz (quando suportado pelo navegador).
+- IA do arquivo, Integration Engine, variáveis vivas e conexões.
+- Histórico, desfazer/refazer, Salvar como, colaboração e comentários.
+- Backup de dados em JSON dos registros do Caderno (anexos binários continuam no armazenamento/sincronização).
+- PWA/offline, atalhos de aplicativo, tela cheia, modo foco, modo compacto,
+  manter tela ativa e modo S Pen Only.
+- Modo desempenho máximo para dispositivos mais modestos.
+- Novos modelos: Caderno de Trabalho MAX, Reunião/Ata, Relatório Técnico,
+  Orçamento/Quantitativos, Brainstorm e Caderno de Campo.
+
+SUPABASE
+- O aplicativo continua usando config.js já configurado no GitHub.
+- Para atualizar uma instalação existente, NÃO substitua config.js.
+- Execute setup/supabase-v8-migration.sql no projeto Supabase.
+- Para colaboração, execute também setup/supabase-v26-collaboration.sql.
+
+PUBLICAÇÃO NO GITHUB PAGES
+1. Extraia o ZIP de atualização.
+2. Envie os arquivos internos para a RAIZ do repositório Caderno-Inteligente-Work.
+3. NÃO envie/substitua config.js se ele já contém seu Supabase.
+4. Commit changes.
+5. Aguarde o GitHub Pages publicar.
+6. Abra o app e use Ctrl+Shift+R uma vez.
+
+ATALHOS
+Ctrl+K        Paleta de comandos
+Ctrl+F        Navegar/buscar no caderno (quando não estiver digitando)
+Ctrl+Shift+F  Modo foco
+Ctrl+Shift+P  S Pen Only
+Ctrl+Z        Desfazer global (fora de campos editáveis)
+Ctrl+Y        Refazer global
+Ctrl+Shift+S  Salvar como
+Esc           Fecha capa/painéis/paleta
+
+VERSÃO
+V3 FINAL — 14/09/2026
